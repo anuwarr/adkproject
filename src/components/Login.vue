@@ -8,18 +8,18 @@
                 <div class="field">
                     <div class="ui left icon input big">
                         <i class="user icon"></i>
-                        <input type="text" placeholder="User Name" />
+                        <input type="text" v-model="email" placeholder="User Name" />
                     </div>
 
                 </div>
                 <div class="field">
                     <div class="ui left icon input big">
                         <i class="lock icon"></i>
-                        <input type="password" placeholder="Password"/>
+                        <input type="password" v-model="password" placeholder="Password"/>
                     </div>
 
                 </div>
-                <button class="ui button big blue fluid " >Login</button>
+                <button class="ui button big blue fluid "  @click="login">Login</button>
 
             </div>
         </form>
@@ -28,6 +28,41 @@
 </section>
     
 </template>
+
+<script>
+import axios from 'axios'
+export default {
+    name: 'Login',
+    data() {
+        return {
+            email:'',
+            password:'',
+        }
+    },
+    methods:{
+        async login(e){
+            e.preventDefault();
+
+            const restul = await axios.get(
+                `http://localhost:3000/users?email=${this.email}&password=${this.password}`
+
+            )
+            if (result.status == 200 && result.data.lenght>0){
+                localStorage.setItem("user-info", JSON.stringify(result.data[0]))
+                this.$router.push({name:'/about'})
+            }
+            
+            
+        }
+
+        
+
+    
+    }
+    
+    
+}
+</script>
 
 <style scoped>
 section{
