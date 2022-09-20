@@ -1,5 +1,16 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div>
+    <StaffLogin />
   </div>
 </template>
+
+
+<script>
+import StaffLogin from '@/components/StaffLogin.vue'
+export default {
+  name:'AboutView',
+  components:{
+    StaffLogin
+  }
+}
+</script>

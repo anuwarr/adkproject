@@ -43,14 +43,21 @@ export default {
         async login(e){
             e.preventDefault();
 
-            const restul = await axios.get(
+            const result = await axios.get(
                 `http://localhost:3000/users?email=${this.email}&password=${this.password}`
+             
 
             )
-            if (result.status == 200 && result.data.lenght>0){
-                localStorage.setItem("user-info", JSON.stringify(result.data[0]))
-                this.$router.push({name:'/about'})
+            if (result.status == 200 && result.data.length>0) {
+
+                localStorage.setItem("user-info",JSON.stringify(result.data[0]))
+                this.$router.push({path:'/about'})
             }
+          
+
+
+
+              
             
             
         }
