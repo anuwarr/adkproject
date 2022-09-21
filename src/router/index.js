@@ -21,7 +21,13 @@ const routes = [
     path: '/floor',
     name: 'floor',
     component: FloorView
+  },
+  {
+    path:'/inventory',
+    name: 'inventory',
+    component: ()=> import('../views/InventoryView.vue')
   }
+
 ]
 
 const router = createRouter({

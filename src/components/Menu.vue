@@ -4,8 +4,10 @@
              <div class="item">
     <img src="@/assets/img/adklogo.jpg">
   </div>
-            <a class=" active item" href="">Home</a>
-            <a class="item">Inventory</a>
+           <router-link class="item" to="/floor">Home</router-link>
+          <router-link class="item" to="/inventory">
+            Inventory
+          </router-link>
   <a class="item">History</a>
   <div class="right menu">
     <div class="item">
